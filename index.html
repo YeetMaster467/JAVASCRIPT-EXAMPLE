@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>This is a website using HTML, CSS, and JavaScript!</title>
+        <style>
+            body {
+                background-color:goldenrod;
+            }
+            h1 {
+                font-family: Arial, Helvetica, sans-serif;
+                text-align: center;
+                color: rgb(253, 255, 186);
+            }
+            h2 {
+                font-family: Arial, Helvetica, sans-serif;
+                text-align: center;
+                color: rgb(253, 255, 186);
+            }
+            p {
+                font-family: Arial, Helvetica, sans-serif;
+                text-align: center;
+                color: rgb(253, 255, 186);
+            }
+            .center {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 50%;
+            }
+            button {
+                background-color: rgb(253, 255, 186);
+            }
+            .imageCenter {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 25%;
+            }
+        </style>
+        <!-- I stole the JavaScript code from https://www.w3docs.com/snippets/javascript/how-to-get-the-value-of-text-input-field-using-javascript.html -->
+        <script>
+            function getInputValue() {
+            // Selecting the input element and get its value 
+            let inputVal = document.getElementById("inputId").value;
+            // Displaying the value
+            alert(inputVal);
+            }
+        </script>
+        <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script>
+    </head>
+
+    <body>
+        <h1>Welcome to Eli's Project Fair!</h1>
+        <h2>This website is coded in HTML, CSS, and JavaScript!</h2>
+        <p>It's pretty much complete! Scroll down to see cool things you can do with JavaScript!</p>
+        <img src="https://th.bing.com/th/id/R.e6d82362f50c26c1b0e6186b99e18e3c?rik=ZkiNhqWudt2EYQ&riu=http%3a%2f%2f3.bp.blogspot.com%2f-PTty3CfTGnA%2fTpZOEjTQ_WI%2fAAAAAAAAAeo%2fKeKt_D5X2xo%2fs1600%2fjs.jpg&ehk=uLz7cG48BbXqyb7LS1GN3v3uFyOhkFlskPBBnFx4ryc%3d&risl=&pid=ImgRaw&r=0" alt="css image" class="imageCenter">
+        <h2>For our first exhibit, this input will repeat anything you enter into it.</h2>
+        <input type="text" placeholder="I'll repeat anything you enter!" id="inputId" class="center">
+        <button type="button" class="center" onclick="getInputValue();">Enter</button>
+        <h2>Now, have the main show, this is a display of JavaScript graphics!</h2>
+        <canvas id="graphics" class="center"></canvas>
+    </body>
+
+    <script>
+        var programCode = function(processingInstance) {
+        with (processingInstance) {
+        size(400, 400); 
+        frameRate(30);
+        
+        // Paste code from Khan Academy here:
+        var x = 200;
+        var y = 200;
+        var speed = 10;
+        rectMode(CENTER);
+        noStroke();
+
+        draw = function() {
+            x += random(-2.5, 2.5);
+            y += random(-2.5, 2.5);
+            background(4, 38, 54);
+            fill(209, 209, 184);
+            ellipse(60,60, 75,75);
+            fill(random(50,255), 68, 0);
+            ellipse(x, y + 50, 31,50);
+            fill(82, 80, 80);
+            rect(x, y, 50, 75);
+            fill(189, 11, 11);
+            triangle(x - 31, y - 32, x, y + -72, x + 35, y - 31);
+            fill(5, 205, 250);
+            ellipse(x, y - 10, 20,20);
+        }}};
+
+
+        // Get the canvas that ProcessingJS will use
+        var canvas = document.getElementById("graphics"); 
+        // Pass the function to ProcessingJS constructor
+        var processingInstance = new Processing(canvas, programCode);
+        
+    </script>
+
+</html> 
